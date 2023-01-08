@@ -1,0 +1,257 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+:root {
+  --dark: #34495e;
+  --light: #ffffff;
+  --success: hwb(133 6% 10%);
+  --error: #f40404;
+  --warning: #ebbc00;
+  --info: #072f4a;
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: var(--dark);
+}
+.notifications {
+  position: fixed;
+  top: 30px;
+  right: 20px;
+}
+.notifications :where(.toast, .column) {
+  display: flex;
+  align-items: center;
+}
+.notifications .toast {
+  width: 400px;
+  position: relative;
+  overflow: hidden;
+  list-style: none;
+  border-radius: 4px;
+  padding: 16px 17px;
+  margin-bottom: 10px;
+  background: var(--light);
+  justify-content: space-between;
+  animation: show_toast 0.3s ease forwards;
+}
+@keyframes show_toast {
+  0% {
+    transform: translateX(100%);
+  }
+  40% {
+    transform: translateX(-5%);
+  }
+  80% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-10px);
+  }
+}
+.notifications .toast.hide {
+  animation: hide_toast 0.3s ease forwards;
+}
+@keyframes hide_toast {
+  0% {
+    transform: translateX(-10px);
+  }
+  40% {
+    transform: translateX(0%);
+  }
+  80% {
+    transform: translateX(-5%);
+  }
+  100% {
+    transform: translateX(calc(100% + 20px));
+  }
+}
+.toast::before {
+  position: absolute;
+  content: "";
+  height: 3px;
+  width: 100%;
+  bottom: 0px;
+  left: 0px;
+  animation: progress 5s linear forwards;
+}
+@keyframes progress {
+  100% {
+    width: 0%;
+  }
+}
+.toast.success::before,
+.btn#success {
+  background: var(--success);
+}
+.toast.error::before,
+.btn#error {
+  background: var(--error);
+}
+.toast.warning::before,
+.btn#warning {
+  background: var(--warning);
+}
+.toast.info::before,
+.btn#info {
+  background: var(--info);
+}
+.toast .column i {
+  font-size: 1.75rem;
+}
+.toast.success .column i {
+  color: var(--success);
+}
+.toast.error .column i {
+  color: var(--error);
+}
+.toast.warning .column i {
+  color: var(--warning);
+}
+.toast.info .column i {
+  color: var(--info);
+}
+.toast .column span {
+  font-size: 1.07rem;
+  margin-left: 12px;
+}
+.toast i:last-child {
+  color: #aeb0d7;
+  cursor: pointer;
+}
+.toast i:last-child:hover {
+  color: var(--dark);
+}
+.buttons .btn {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin: 0 5px;
+  color: var(--light);
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  border-radius: 4px;
+}
+@media screen and (max-width: 530px) {
+  .notifications {
+    width: 95%;
+  }
+  .notifications .toast {
+    width: 100%;
+    font-size: 1rem;
+    margin-left: 20px;
+  }
+  .buttons .btn {
+    margin: 0 1px;
+    font-size: 1.1rem;
+    padding: 8px 15px;
+  }
+}
+* {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+body {
+  min-height: 1000px;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(106, 166, 245);
+  color: black;
+}
+.headerBar {
+  background-color: rgb(8, 138, 145);
+  color: rgb(207, 123, 33);
+  text-align: center;
+  padding: 20px;
+}
+.title {
+  margin-bottom: 20px;
+  color: white;
+}
+.topbar {
+  margin-bottom: 10px;
+}
+.currency {
+  font-size: 30px;
+  font-weight: 300;
+}
+.balance {
+  font-size: 30px;
+  font-weight: 300;
+}
+.content {
+  width: 580px;
+  margin: 0 auto;
+  padding: 3%;
+  padding-left: 6%;
+}
+.secondTitle {
+  background-color: rgb(181, 27, 47);
+  color: white;
+  text-align: center;
+  margin-top: 100px;
+  padding: 20px;
+  font-size: 25px;
+}
+.form {
+  padding: 5px;
+  padding-top: 20px;
+  padding-left: 10%;
+  justify-content: center;
+  background-color: bisque;
+}
+.formLine {
+  display: inline-flex;
+  padding: 5px 0px;
+}
+.left {
+  float: left;
+}
+.right {
+  float: right;
+  margin-right: 100px;
+}
+input,
+select {
+  width: 130px;
+  margin-left: 10px;
+}
+table {
+  width: 100%;
+}
+thead {
+  background-color: rgb(28, 202, 237);
+  color: white;
+  line-height: 30px;
+}
+tbody {
+  background-color: bisque;
+  line-height: 30px;
+  text-align: center;
+}
+button {
+  width: 200px;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  font-size: 1.1em;
+  line-height: 20px;
+  background-color: rgb(6, 205, 185);
+  border-radius: 5px;
+  margin: 14px 25%;
+  cursor: pointer;
+}
+button:hover {
+  box-shadow: 0 0 0 2px grey;
+  transition: 0.5s;
+}
+a {
+  text-decoration: underline;
+  cursor: pointer;
+}
